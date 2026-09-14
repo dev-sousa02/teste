@@ -1,13 +1,46 @@
-# teste
->eu fiz talta 
+Como subir trabalhos no Github: 
+# 1. Entrar na pasta do projeto
+cd "caminho/da/pasta"
 
-![enter image description here](https://www.google.com/imgres?q=github&imgurl=https://hub.asimov.academy/wp-content/uploads/2024/11/github-logo.webp&imgrefurl=https://hub.asimov.academy/blog/github-o-que-e-como-funciona/&docid=9AKkrUyeREBZcM&tbnid=jwOlJn_MIJJ0eM&vet=12ahUKEwj5w9KBycOWAxUTqZUCHZagOf4QnPAOegQIRxAA..i&w=585&h=368&hcb=2&ved=2ahUKEwj5w9KBycOWAxUTqZUCHZagOf4QnPAOegQIRxAA)
+# 2. Inicializar o repositório Git
+git init
 
-git config --global user.name ""
-git config --global user.email
-git config --global --list
-git clone
+# 3. Renomear o branch padrão para "main"
+git branch -M main
+
+# 4. Adicionar os arquivos
 git add .
-git status
-git commit -m ""
+
+# 5. Fazer o commit
+git commit -m "Primeiro commit"
+
+# 6. Conectar ao repositório do GitHub
+git remote add origin https://github.com/seu-usuario/nome-repo.git
+
+# 7. Enviar para o GitHub
+git push -u origin main
+
+Alterações:
+git add .
+git commit -m "descrição da alteração"
 git push
+
+Possíveis erros:
+# Tentativa inicial de push (deu erro: "src refspec main does not match any")
+git push -u origin main
+
+# Verificando o que estava acontecendo
+git status
+# → mostrou "On branch master" (branch estava com nome errado)
+
+# Renomeando o branch de "master" para "main"
+git branch -M main
+
+# Tentando o push novamente (deu erro: rejected, remote contains work you do not have)
+git push -u origin main
+
+# Trazendo o conteúdo do GitHub (README) para juntar com o projeto local
+git pull origin main --allow-unrelated-histories
+
+# Push final, agora com sucesso
+git push -u origin main
